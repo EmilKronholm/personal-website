@@ -1,0 +1,6 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/pezeb/app
+    - /bin/cp -r * $DEPLOYPATH
+    - /bin/npm --prefix $DEPLOYPATH install --production
