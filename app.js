@@ -4,14 +4,6 @@ const path = require('path');
 const app = express();
 const PORT = 3000;
 
-//Force HTTPS http -> https
-app.use((req, res, next) => {
-    if (!req.secure) {
-        return res.redirect(301, `https://${req.headers.host}${req.url}`);
-    }
-    next();
-});
-
 // Serve static files from the 'public' directory
 app.use(express.static(path.join(__dirname, 'public')));
 
