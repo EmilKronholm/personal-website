@@ -1,0 +1,84 @@
+header {
+    animation: animateBg 7s linear infinite;
+    background-image: linear-gradient(90deg, #a63dd6, #e222c9, #d32783, #e04242, #a63dd6, #e222c9);
+    background-size: 500% 100%;
+
+    height: 100vh;
+    padding: 48px;
+
+    display: flex;
+    /* flex-direction:column; */
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+}
+
+header .title {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
+header section {
+    text-align: left;
+    color: whitesmoke;
+    font-weight: 900;
+    font-size: 48px;
+}
+
+header section h1 {
+    animation: fadeSlide 1s ease-out forwards;
+    font-size: 90px;
+    padding: 0;
+    margin-top: -10px;
+    margin-bottom: -30px;
+}
+
+header section h2 {
+    font-size: 28px;
+    font-weight: 200;
+    opacity: 0;
+    animation: scaleUp 2s ease-in-out 0s forwards;
+}
+
+header section h3 {
+    font-size: 30px;
+    font-weight: 400;
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 0;
+    animation: typing 2s steps(40, end) 1s forwards;
+}
+
+header img {
+    width: 60px;
+    background-color: rgba(245, 245, 245, 0.821);
+    padding: 10px;
+    border-radius: 100px;
+    margin-right: 10px;
+}
+
+header li {
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+    font-weight: 400;
+    color: whitesmoke;
+    padding-bottom: 15px;
+
+    opacity: 0;
+    animation: fadeSlideX 0.4s ease-out forwards;
+}
+
+header li:nth-child(1) {
+    animation-delay: calc(0.5s);
+}
+
+header li:nth-child(2) {
+    animation-delay: calc(0.5s + 0.2s);
+}
+
+header li:nth-child(3) {
+    animation-delay: calc(0.5s + 0.5s);
+}

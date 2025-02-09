@@ -5,73 +5,111 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio</title>
-    <link rel="stylesheet" href="style/styles.css">
+    <link rel="stylesheet" href="../style/font.css">
+    <link rel="stylesheet" href="../style/animations.css">
+    <link rel="stylesheet" href="../style/header.css">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
-        rel="stylesheet">
-
+    <link rel="stylesheet" href="../style/styles.css">
 </head>
 
 <body>
     <header>
-        <div class="title">
-            <section>
-                <h2>Computer Engineer</h2>
-                <div class="big-header">
+        <section id="header-content">
+            <div class="title">
+                <section>
+                    <h2>Computer Engineer</h2>
                     <h1>Emil Kronholm</h1>
-                </div>
-                <p>Software Development and Mobile Platforms</p>
-            </section>
-        </div>
-        <br>
-        <div class="icons">
-            <div class="icon-text">
-                <img src="img/school-building.png">
-                <p>2nd student at the beautiful Jönköping Engineering School</p>
+                    <h3>Software Development and Mobile Platforms</h3>
+                </section>
             </div>
+            <br>
+            <ul>
+                <li>
+                    <img src="../img/school-building.png">
+                    <p>2nd year student at the beautiful Jönköping Engineering School</p>
+                </li>
 
-            <div class="icon-text">
-                <img src="img/training.png">
-                <p>Working as labassistant for Jönköping Univeristy</p>
-            </div>
+                <li>
+                    <img src="../img/training.png">
+                    <p>Working as labassistant for Jönköping Univeristy</p>
+                </li>
 
-            <div class="icon-text">
-                <img src="img/student-grades.png">
-                <p>Excellent academic performance</p>
-            </div>
-        </div>
+                <li>
+                    <img src="../img/student-grades.png">
+                    <p>Excellent academic performance</p>
+                </li>
+            </ul>
+        </section>
     </header>
     <main>
         <section id="about">
-            <h2>About Me</h2>
-            <p>
-                I am a passionate and creative Computer Engineer specializing in software development and mobile platforms. 
-                With years of experience in programming, I thrive in problem-solving and building efficient, well-structured applications. 
-                My expertise spans across web, system, and game development, all of which require a keen eye for detail and innovation.
+            <h2>Welcome to Emil Kronholm's personal website!</h2>
+            <p>My personal goal is to become one of the best developer of my time.
+                This goal is far from realistic and will (probably) never come true; but I think it keeps me
+                learning, staying positive, and motives me to one day make a groundbreaking innovation!
+                <br><br>
+                I hope you will enjoy you stay!
             </p>
-            <p>
-                Currently, I am studying at Jönköping Engineering School, where I balance academic excellence with hands-on experience. 
-                As a lab assistant, I mentor students in programming, refining my leadership and communication skills.
-            </p>
-            <p>
-                My interests include agile methodologies, software architecture, and statistics, which play a crucial role in my career aspirations. 
-                I am always eager to learn new technologies and improve my ability to solve complex problems effectively.
-            </p>
-            <img src="A_modern_and_minimalistic_digital_illustration_of_.png" alt="Computer Engineer at Work">
+        </section>
+        <section id="bullet-points">
+
+            <h2>My biggest achivments in life so far</h2>
+            <ul>
+                <li>Solve a Rubik's cube under 10 seconds. (sub-15 ao5)</li>
+                <li>80 000 kr turn over (2022-2023)</li>
+                <li>Being accepted into my dream school JTH</li>
+                <li>Playing as Libero in JUSA Volleyball Team 2023</li>
+                <li>Traveled to Barcelona and swam in the ocean</li>
+                <li>Running 10 km (albeit pretty slow)</li>
+                <li>Co-funder of Lazy Loops</li>
+            </ul>
         </section>
 
         <section id="projects">
             <h2>Projects</h2>
-            <p>This is the projects section.</p>
+            <p>Here is an overview of my major projects (both good and bad 😉).</p>
+            <div class="project">
+                <h4>IWannaLearn - Dynamic Website (ON GOING)</h4>
+                <p>Using handlebars & html, Node, and sqlite. A platform to help students and professionals explore,
+                    organize, and share knowledge in the fast-evolving fields of Computer Science. This project is
+                    ongoing and will release it's first release before 2026.</p>
+                <a href="https://github.com/EmilKronholm/iwannalearn">IWannaLearn Repository</a>
+            </div>
+
+            <div class="project">
+                <h4>Online Battleship Game - Android & Jetpack compose (2024)</h4>
+                <p>Built with Kotlin, Jetpack Compose, and Firebase Firestore. Play with your friends with a seamless
+                    online experience.</p>
+                <a href="https://github.com/EmilKronholm/BattleShips">Battleship Repository</a>
+            </div>
+
+            <div class="project">
+                <h4>Paint App (2024)</h4>
+                <p>Built with C++ and the QT ui-framework. Insert shapes, move them around, scale/rotate, move up/down
+                    in layers, and change colors.</p>
+            </div>
+
+            <div class="project">
+                <h4>Roll The Boll - 2D chill puzzle game (2022)</h4>
+                <p>Made with C# and Unit, self-produced music and self-made assets. Sit back and relax as you
+                    strageiteclly drag-and-drop bouncy objects to guide the rolling ball towards the goal! Can you make
+                    it?</p>
+            </div>
+
+            <div class="project">
+                <h4>Kill or Die - 3D FPS Game (2021)</h4>
+                <p>Made with C# and Unit, self-produced music and outsourced assets. Run around a square mad with,
+                    avoiding zombies and collecting ammunation. Shoot the enemies with gun or rifle to survive.</p>
+            </div>
+
+
+
         </section>
     </main>
     <footer>
-        <p>&copy; 2023 Your Name</p>
+        <p>&copy; 2025 Emil Kronholm</p>
     </footer>
-    <script src="script/script.js"></script>
+    <script src="../script/script.js"></script>
 </body>
 
 </html>
