@@ -15,7 +15,6 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'ui/index.html'));
 });
 
-
 //Morfars lilla experiment
 const goiboet = require("./goiboet/goiboet-router")
 app.use(goiboet);
