@@ -30,5 +30,8 @@ router.post('/goiboet/vote/:id', async (req, res) => {
     res.status(201).json("Vote was successfully sent.");
 });
 
+const goiboetLogin = require('./goiboet-login')
+router.use(goiboetLogin);
+
 // Export router
 module.exports = router;
