@@ -5,7 +5,7 @@ const path = require('path');
 const filePath = path.join(__dirname, 'currentvoting.json');
 
 // Load the current voting from memory
-async function loadCurrentVoting()  {
+async function loadCurrentVoting() {
     let currentVoting = [0, 0, 0, 0, 0, 0]; // Default values in case of an error
 
     if (!fs.existsSync(filePath)) {
