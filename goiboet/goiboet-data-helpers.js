@@ -46,18 +46,18 @@ function writeCurrentVoting(votingArray) {
 async function getCurrentVotingJSON() {
 
     if (!fs.existsSync(filePath)) {
-        return JSON.stringify([0, 0, 0, 0, 0, 0], null, 2);
+        return {"0": 0, "1": 0, "2": 0, "3": 0, "4": 0, "5": 0}
     }
 
     try {
-        const fileData = await fs.readFileSync(filePath, 'utf8');
+        const fileData = fs.readFileSync(filePath, 'utf8');
         const jsonData = await JSON.parse(fileData);
-        return jsonData;
+        return jsonData
     } catch (error) {
         console.error('Error loading current voting:', error);
     }
 
-    return JSON.stringify([0, 0, 0, 0, 0, 0], null, 2);;
+    return {"0": 0, "1": 0, "2": 0, "3": 0, "4": 0, "5": 0}
 }
 
-module.exports = { loadCurrentVoting, writeCurrentVoting };
+module.exports = { loadCurrentVoting, writeCurrentVoting, getCurrentVotingJSON };

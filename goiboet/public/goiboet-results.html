@@ -65,6 +65,14 @@
             transition: background 0.3s;
         }
 
+        a button {
+            background: #686868;
+        }
+
+        a button:hover {
+            background: #afafaf;
+        }
+
         button:hover {
             background: #c9302c;
         }
@@ -80,10 +88,13 @@
                 <p class="loading">Hämtar resultat...</p>
             </div>
             <button onclick="logout()">Logga ut</button>
+            <a href="/goiboet">
+                <button>Tillbaka till röstningen</button>
+            </a>
         </div>
     </main>
 
-    <script src="goiboet.js"></script>
+    <script src="../goiboet-results.js"></script>
 
 </body>
 
