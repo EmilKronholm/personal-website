@@ -1,4 +1,8 @@
 const express = require('express');
+const session = require('express-session')
+const path = require('path');
+const { getCurrentVotingJSON } = require('./goiboet-data-helpers')
+
 const router = express.Router();
 
 router.use(express.static(path.join(__dirname, 'public')));
@@ -25,9 +29,9 @@ router.post('/goiboet/auth', express.json(), (req, res) => {
     //Till Andreas: Jag hoppas du kan förlåta mig för följande synd
     if (username === "morfar" && password == "kung") {
         req.session.user = { username }
-        res.send(200).json("Login successfull")
+        res.status(200).json("Login successfull")
     } else {
-        res.send(403).json("Wrong login!")
+        res.status(403).json("Wrong login!")
     }
 });
 
@@ -49,12 +53,17 @@ router.get('/goiboet/results', (req, res) => {
     if (!req.session.user) {
         return res.redirect('/goiboet/login');
     }
-    res.sendFile(path.join(__dirname, '../public/ui/goiboet-results.html'));
+    res.sendFile(path.join(__dirname, './public/goiboet-results.html'));
 });
 
 router.get('/goiboet/results/json', async (req, res) => {
     if (!req.session.user) {
         return res.redirect('/goiboet/login');
     }
-    res.send(200)
+
+    const jsonData = await getCurrentVotingJSON();
+    res.status(200).json(jsonData);
 })
+
+// Export router
+module.exports = router;
