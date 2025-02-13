@@ -43,4 +43,21 @@ function writeCurrentVoting(votingArray) {
     }
 }
 
+async function getCurrentVotingJSON() {
+
+    if (!fs.existsSync(filePath)) {
+        return JSON.stringify([0, 0, 0, 0, 0, 0], null, 2);
+    }
+
+    try {
+        const fileData = await fs.readFileSync(filePath, 'utf8');
+        const jsonData = await JSON.parse(fileData);
+        return jsonData;
+    } catch (error) {
+        console.error('Error loading current voting:', error);
+    }
+
+    return JSON.stringify([0, 0, 0, 0, 0, 0], null, 2);;
+}
+
 module.exports = { loadCurrentVoting, writeCurrentVoting };
