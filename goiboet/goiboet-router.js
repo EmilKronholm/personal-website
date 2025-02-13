@@ -15,10 +15,6 @@ router.get('/goiboet-success', (req, res) => {
     res.sendFile(path.join(__dirname, './public/goiboet-success.html'));
 });
 
-router.get('/goiboet/login', (req, res) => {
-    res.sendFile(path.join(__dirname, './public/goiboet-login.html'));
-})
-
 router.post('/goiboet/vote/:id', async (req, res) => {
     const voteID = parseInt(req.params.id, 10);
     if (isNaN(voteID) || voteID < 0 || voteID > 5) {
