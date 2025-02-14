@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Logga in - Goiboet</title>
+
+    <link rel="stylesheet" href="../style/font.css" />
+
+    <style>
+        body {
+            max-width: 600px;
+            margin: 0 auto;
+            font-family: Inter;
+            background: #f0f8ff;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        .login-container {
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        input {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            background: #4399df;
+            color: white;
+            transition: background 0.3s;
+            margin-bottom: 10px;
+        }
+
+        a button {
+            background: #999999;
+        }
+
+        button:hover {
+            background: #50368d;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            font-style: italic;
+            color: #555;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <div class="login-container">
+            <h1>Logga in</h1>
+            <input type="text" id="username" placeholder="Användarnamn" />
+            <input type="password" id="password" placeholder="Lösenord" />
+            <button onclick="login()">Logga in</button>
+            <a href="/goiboet">
+                <button>Tillbaka till röstningen</button>
+            </a>
+        </div>
+    </main>
+
+    <script>
+        async function login() {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            const response = await fetch('/goiboet/auth', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ username, password })
+            });
+
+            if (response.ok) {
+                window.location.href = "/goiboet/results";
+            } else {
+                alert("Fel användarnamn eller lösenord!");
+            }
+        }
+    </script>
+</body>
+
+</html>
