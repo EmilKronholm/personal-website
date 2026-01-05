@@ -1,0 +1,49 @@
+name: Node.js Targeted Deployment
+
+on:
+    push:
+        branches: [main]
+
+jobs:
+    deploy:
+        name: Deploy App
+        runs-on: ubuntu-latest
+        environment: main server key
+
+        steps:
+            - name: Checkout Code
+              uses: actions/checkout@v4
+
+            - name: Setup Node.js
+              uses: actions/setup-node@v4
+              with:
+                  node-version: "20"
+                  cache: "npm"
+
+            - name: Build App
+              run: |
+                  npm install
+                  npm run build --if-present
+
+            - name: SSH Deploy
+              uses: appleboy/ssh-action@v1.0.3
+              with:
+                  host: ${{ secrets.REMOTE_HOST }}
+                  username: ${{ secrets.USERNAME }}
+                  key: ${{ secrets.SHH_PRIVATE_KEY }}
+                  port: 22
+                  script: |
+                      cd /var/www/personal-website
+
+                      # 1. Update code without touching other files (like .env)
+                      git fetch origin main
+                      git reset --hard origin/main
+
+                      # 2. Install packages
+                      npm install 
+
+                      # 3. Targeted PM2 Reload/start
+                      pm2 reload ${{secrets.PM2_NAME}} || pm2 start app.js --name ${{secrets.PM2_NAME}}
+
+                      # 4. Save the PM2 list for this user
+                      pm2 save
