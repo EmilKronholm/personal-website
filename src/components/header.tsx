@@ -1,9 +1,37 @@
+"use client"
+
 import styles from "./header.module.css"
+import { useState } from 'react';
+import { useEffect } from 'react';
 
 export default function Header() {
+
+    const [textOffset, setTextOffset] = useState({ x: 0.0, y: 0.0 });
+
+    useEffect(() => {
+        const updatePosition = (event: MouseEvent) => {
+            const normalizedDistanceToCenter = (x: number, y: number) => {
+                const constant = 40;
+                const xNormalizedDistance =
+                    ((window.innerWidth / 2 - x) / (window.innerWidth / 2)) * constant;
+                const yNormalizedDistance =
+                    ((window.innerHeight / 2 - y) / (window.innerHeight / 2)) * constant;
+                return { x: xNormalizedDistance, y: yNormalizedDistance };
+            };
+
+            const r = normalizedDistanceToCenter(event.clientX, event.clientY);
+            setTextOffset(r);
+        };
+        window.addEventListener("mousemove", updatePosition);
+        return () => {
+            window.removeEventListener("mousemove", updatePosition);
+        };
+    }, []);
+
+
     return (
         <div className={styles.header}>
-            <section className={styles.headerContent}>
+            <section className={styles.headerContent} style={{ transform: `translate(${textOffset.x}px, ${textOffset.y}px)` }} >
                 <div className={styles.title}>
                     <section className={styles.titleText}>
                         <h2 className={styles.h2}>Computer Engineer</h2>
@@ -26,7 +54,7 @@ export default function Header() {
                     </li>
                 </ul>
             </section>
-        </div>
+        </div >
 
     )
 }
